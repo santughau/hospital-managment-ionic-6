@@ -13,23 +13,23 @@ const routes: Routes = [
   },
   {
     path: 'sign-in',
-    loadChildren: () => import('./pages/sign-in/sign-in.module').then( m => m.SignInPageModule)
+    loadChildren: () => import('./pages/loginInPages/sign-in/sign-in.module').then( m => m.SignInPageModule)
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./pages/loginInPages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'reset-password',
-    loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
+    loadChildren: () => import('./pages/loginInPages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
   {
     path: 'sent-code',
-    loadChildren: () => import('./pages/sent-code/sent-code.module').then( m => m.SentCodePageModule)
+    loadChildren: () => import('./pages/loginInPages/sent-code/sent-code.module').then( m => m.SentCodePageModule)
   },
   {
     path: 'new-password',
-    loadChildren: () => import('./pages/new-password/new-password.module').then( m => m.NewPasswordPageModule)
+    loadChildren: () => import('./pages/loginInPages/new-password/new-password.module').then( m => m.NewPasswordPageModule)
   }
 ];
 
