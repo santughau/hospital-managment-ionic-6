@@ -1,0 +1,66 @@
+<ion-content>
+  <!---------Main Div Starts Here-->
+  <div class="main">
+    <!---------upperBox Div Starts Here-->
+    <div class="upperBox">
+      <div class="logo">
+        <img src="../../../assets/logo.png" />
+      </div>
+      <div class="signInText">
+        <h2>Enter the Code</h2>
+        <p>The Code was sent to your Email Address.</p>
+      </div>
+    </div>
+    <!---------upperBox Div Close Here-->
+    <div class="lowerBox">
+      <form #loginForm="ngForm">
+
+        <div class="m-4 myForm">
+          <label class="form-label "
+                 [ngClass]="{ 'text-danger': code.touched && code.invalid , 'text-success': code.touched && code.valid }">Code</label>
+          <input type="text"
+                 name="code"
+                 #code="ngModel"
+                 [(ngModel)]="login.code"
+                 required
+                 [ngClass]="{ 'is-invalid': code.touched && code.invalid , 'is-valid': code.touched && code.valid }"
+                 class="form-control "
+                 placeholder="012345">
+        </div>
+        <div class="m-4 "
+             *ngIf="code.invalid && code.touched ">
+          <ion-text color="danger ">
+            <h6 style=" margin-top: -5px;">Please Write Code Here</h6>
+          </ion-text>
+        </div>
+
+
+        <div class="bottomBtn">
+          <div class="d-grid gap-2 m-4 ">
+            <button class="btn btn-primary firstBtn"
+                    type="button"
+                    (click)="goToSignIn()"
+                    [disabled]="loginForm.invalid">CONTINUE</button>
+          </div>
+
+          <div class="d-grid gap-2 m-4 ">
+            <button class="btn btn-outline-primary secondBtn"
+                    type="button"
+                    (click)="goToSignIn()"
+                    [disabled]="loginForm.invalid">RESEND</button>
+          </div>
+          
+        </div>
+        
+
+    
+
+        
+
+        
+
+      </form>
+    </div>
+  </div>
+  <!---------Main Div Close Here-->
+</ion-content>

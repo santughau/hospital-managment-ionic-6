@@ -1,0 +1,92 @@
+<ion-content>
+  <!---------Main Div Starts Here-->
+  <div class="main">
+    <!---------upperBox Div Starts Here-->
+    <div class="upperBox">
+      <div class="logo">
+        <img src="../../../assets/logo.png" />
+      </div>
+      <div class="signInText">
+        <h2>Digital Clinic</h2>
+        <p>Connect With Digital Clinic Care</p>
+      </div>
+    </div>
+    <!---------upperBox Div Close Here-->
+    <div class="lowerBox">
+      <form #loginForm="ngForm">
+
+        <div class="m-4 myForm">
+          <label class="form-label "
+                 [ngClass]="{ 'text-danger': email.touched && email.invalid , 'text-success': email.touched && email.valid }">Email
+            address</label>
+          <input type="email"
+                 name="email"
+                 #email="ngModel"
+                 [(ngModel)]="login.email"
+                 required
+                 email
+                 [ngClass]="{ 'is-invalid': email.touched && email.invalid , 'is-valid': email.touched && email.valid }"
+                 class="form-control "
+                 placeholder="santosh@jswebapp.com">
+        </div>
+        <div class="m-4 "
+             *ngIf="email.invalid && email.touched ">
+          <ion-text color="danger ">
+            <h6 style=" margin-top: -5px;">Please Write Email Address</h6>
+          </ion-text>
+        </div>
+
+        <div class=" m-4 myForm">
+          <label class="form-label"
+                 [ngClass]="{ 'text-danger': password.touched && password.invalid , 'text-success': password.touched && password.valid }">Password</label>
+          <input type="password"
+                 placeholder="********"
+                 name="password"
+                 #password="ngModel"
+                 autocomplete="off"
+                 [(ngModel)]="login.password"
+                 minlength="8"
+                 required
+                 [ngClass]="{ 'is-invalid': password.touched && password.invalid , 'is-valid': password.touched && password.valid }"
+                 class="form-control">
+        </div>
+
+        <div class="m-4 "
+             *ngIf="password.invalid && password.touched  ">
+          <ion-text color="danger ">
+            <h6 style=" margin-top: -5px;">Please Provide Password</h6>
+          </ion-text>
+        </div>
+
+        <div class="m-4 text-center">
+          <p id="fPassword"
+             (click)="goToForget()">Forget Password ?</p>
+        </div>
+
+        <div class="d-grid gap-2 m-4">
+          <button class="btn btn-primary"
+                  type="button"
+                  (click)="goToHome()"
+                  [disabled]="loginForm.invalid">Sign In</button>
+        </div>
+
+        <p class="text-center text-muted">OR</p>
+
+        <div class="socialMedia">
+          <ion-icon name="logo-facebook"
+                    (click)="facebookLogin()"></ion-icon>
+          <ion-icon name="logo-twitter"
+                    (click)="twitterLogin()"></ion-icon>
+          <ion-icon name="logo-google"
+                    (click)="gmailLogin()"></ion-icon>
+        </div>
+
+        <div class="accountCreate text-center text-muted">
+          <p>Don't have an account ? <span (click)="goToRegister()">SignUp</span></p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <!---------Main Div Close Here-->
+</ion-content>
